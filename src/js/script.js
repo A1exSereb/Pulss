@@ -21,10 +21,12 @@ $(document).ready(function(){
 
 //Tabs
   $('ul.catalog__tabs').on('click', 'li:not(.catalog__tab_active)', function() {
-    $(this)
-      .addClass('catalog__tab_active').siblings().removeClass('catalog__tab_active')
-      .closest('div.container').find('div.catalog__content').removeClass('catalog__content_active').eq($(this).index()).addClass('catalog__content_active');
-  });
+ $('.catalog-item__content').addClass('catalog-item__content_active');
+ $('.catalog-item__list').removeClass('catalog-item__list_active');
+ $(this)
+.addClass('catalog__tab_active').siblings().removeClass('catalog__tab_active')
+.closest('div.container').find('div.catalog__content').removeClass('catalog__content_active').eq($(this).index()).addClass('catalog__content_active');
+});
   
   //More
 
@@ -56,7 +58,7 @@ $(document).ready(function(){
       $('#order .modal__descr').text($('.catalog-item__subtitle').eq(i).text())
     })
   });
-
+//validate
   $('.feed-form').validate({
     name: "required",
     phone: "required",
@@ -129,10 +131,10 @@ $(document).ready(function(){
   validateForms('#order form');
   validateForms('#consultation form');
   validateForms('#consultation-form');
-    
+//phoneMask    
   $('input[name=phone]').mask("+7 (999) 999-99-99")
 
-
+//mailer
   $('form').submit(function(e){
     e.preventDefault();
     $.ajax({
@@ -148,5 +150,18 @@ $(document).ready(function(){
     });
     return false;
   });
+//slow scroll up
+  $(window).scroll(function(){
+    if ($(this).scrollTop() > 1600){
+      $('.pageup').fadeIn();
+    }else{
+      $('.pageup').fadeOut();
+    }
+  });
+        $("a[href^='#up']").click(function(){
+                var _href = $(this).attr("href");
+                $("html, body").animate({scrollTop: $(_href).offset().top+"px"});
+                return false;
+        });
 });
   
