@@ -15,6 +15,28 @@ $(document).ready(function(){
         dots: true,
         arrows: false
       }
+    },
+    {
+      breakpoint: 768,
+      settings: {
+        dotsClass: "my-dots",
+        dots: true,
+        arrows: false,
+        centerMode: true,
+        centerPadding: '5px',
+        slidesToShow: 1
+      }
+    },
+    {
+      breakpoint: 480,
+      settings: {
+        dotsClass: "my-dots",
+        dots: true,
+        arrows: false,
+        centerMode: true,
+        centerPadding: '5px',
+        slidesToShow: 1
+      }
     }
   ]
 });
